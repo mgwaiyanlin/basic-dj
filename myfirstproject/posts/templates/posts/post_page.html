@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  | Post Page
+{% endblock %}
+
+{% block content %}
+  <section class="m-5">
+    <img class="card-img-top mb-2" src="{{ post.banner.url }}" alt="{{ post.title }}">
+    <h1 class="text-center mb-2">{{ post.title }} 📫</h1>
+    <div class="card mb-2 p-2">
+      {% comment %} <img src="..." class="card-img-top" alt="..." /> {% endcomment %}
+        <p class="card-text">{{ post.body }}</p>
+    </div>
+    <a href="{% url 'posts:list' %}" class="btn btn-primary">Back</a>
+  </section>
+{% endblock %}
