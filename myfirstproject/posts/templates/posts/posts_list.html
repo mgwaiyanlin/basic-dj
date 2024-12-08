@@ -6,7 +6,10 @@
 
 {% block content %}
   <section>
-    <h1 class="">This is Posts List 📫</h1>
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="">This is Posts List 📫</h1>
+      <a href="{% url 'posts:post_new' %}" class="btn btn-sm bg-success text-white">+ New Post</a>
+    </div>
     <div class="d-flex">
       {% for post in posts %}
         <div class="card m-3" style="width: 18rem;">

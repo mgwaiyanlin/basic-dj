@@ -21,12 +21,20 @@ def login_view(request):
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            return redirect("posts:list")
+            # redirect where the user is trying to access a page that needs authorization
+            if "next" in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect("posts:list")
     else:
         form = AuthenticationForm()
 
     return render(request, 'login_view.html', { "form": form })
 
 def logout_view(request):
-
+    if request.method == "POST":
+        logout(request)
+        return redirect("posts:list")
+    else:
+        form = 1
     return render(request, "")
