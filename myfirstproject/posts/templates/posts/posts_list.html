@@ -16,6 +16,7 @@
           {% comment %} <img src="..." class="card-img-top" alt="..." /> {% endcomment %}
           <div class="card-body">
             <h5 class="card-title">{{ post.title }}</h5>
+            <p class="">{{ post.date }} by {{ post.author}}</p>
             <p class="card-text" style="display: inline-block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ post.body }}</p>
             <a href="{% url 'posts:page' slug=post.slug %}" class="btn btn-primary">Read more</a>
           </div>
